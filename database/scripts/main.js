@@ -261,15 +261,15 @@ function deleteComment(postElement, id) {
  */
 function startDatabaseQueries() {
   // [START my_top_posts_query]
-  var myNotificationsRef = firebase.database().ref('notifications/' + 'topic:user-area1');
+  var myNotificationsRef = firebase.database().ref('notifications/' + '123457');
   // [END my_top_posts_query]
   // [START recent_posts_query]
   // [END recent_posts_query]
+  var counter = 0;
 
   var fetchPosts = function(postsRef, sectionElement) {
     postsRef.on('child_added', function(data) {
-      var containerElement = sectionElement.getElementsByClassName('notifications-container')[0];
-      containerElement.innerText = data.childCount();
+      sectionElement.getElementsByClassName('notifications-container')[0].innerHTML = ++counter;
     });
   };
 
